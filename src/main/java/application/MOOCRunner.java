@@ -13,9 +13,8 @@ public class MOOCRunner {
 
         RestAPI api = new RestAPI();
         //String postResponse = api.createUser("John Doe");
-        String getResponse = api.getUser();
 
         System.out.println("API Post response:");
-        System.out.println(getResponse);
+        System.out.println(api.getResponse());
     }
 }

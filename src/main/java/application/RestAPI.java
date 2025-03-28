@@ -16,7 +16,24 @@ public class RestAPI {
                 .build();
 
         HttpClient client = HttpClient.newHttpClient();
-        HttpResponse<String> response = client.send(postRequest, HttpResponse.BodyHandlers.ofString());
-        return response.body();
+        HttpResponse<String> postResponse = client.send(postRequest, HttpResponse.BodyHandlers.ofString());
+
+        return postResponse.body();
+    }
+
+    public String getUser() throws Exception {
+        HttpRequest getRequest = HttpRequest.newBuilder()
+                .uri(new URI("https://reqres.in/api/users/2"))
+                .header("Content-Type", "application/json")
+                .GET()
+                .build();
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpResponse<String> getResponse = client.send(getRequest, HttpResponse.BodyHandlers.ofString());
+
+        JSONObject json = new JSONObject(getResponse.body());
+        JSONObject data = json.getJSONObject("data");
+
+        return data.getString("first_name");
     }
 }

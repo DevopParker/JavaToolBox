@@ -8,14 +8,14 @@ public class MOOCRunner {
         //Printing.boilerplate("Example");
         //Printing.fileStructure();
         //Printing.javaCapitalization();
-//        Printing.applicationTitle();
-//        Menu.runMenu();
+        //Printing.applicationTitle();
+        //Menu.runMenu();
 
         RestAPI api = new RestAPI();
-        String response = api.createUser("John Doe");
+        //String postResponse = api.createUser("John Doe");
+        String getResponse = api.getUser();
 
-        System.out.println("API Response:");
-        System.out.println(response);
-
+        System.out.println("API Post response:");
+        System.out.println(getResponse);
     }
 }
